@@ -74,9 +74,7 @@ public class BomberMap extends Application {
                 // Thêm Rectangle vào GridPane ở vị trí tương ứng
                 grid.add(rect, j, i);
             }
-        }
-    }
- 
+    
     // Phương thức start để khởi chạy ứng dụng
     @Override
     public void start(Stage primaryStage) throws Exception {
