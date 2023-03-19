@@ -76,7 +76,7 @@ public class BomberMap extends Application {
             }
         }
     }
-
+ 
     // Phương thức start để khởi chạy ứng dụng
     @Override
     public void start(Stage primaryStage) throws Exception {
