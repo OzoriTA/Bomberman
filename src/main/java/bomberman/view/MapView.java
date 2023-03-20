@@ -1,4 +1,4 @@
-package bomberman;
+package bomberman.view;
 
 
 import javafx.application.Application;
@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 // Tạo một lớp kế thừa từ Application
-public class BomberMap extends Application {
+public class MapView extends Application {
 
     // Khai báo các hằng số cho kích thước của bản đồ và ô vuông
     public static final int ROWS = 10; // Số hàng của bản đồ
@@ -24,7 +24,7 @@ public class BomberMap extends Application {
     private GridPane grid;
 
     // Phương thức khởi tạo để tạo ra một bản đồ ngẫu nhiên
-    public BomberMap() {
+    public MapView() {
         // Tạo một mảng hai chiều với kích thước ROWS x COLS
         map = new int[ROWS][COLS];
 
@@ -74,7 +74,9 @@ public class BomberMap extends Application {
                 // Thêm Rectangle vào GridPane ở vị trí tương ứng
                 grid.add(rect, j, i);
             }
-    
+        }
+    }
+
     // Phương thức start để khởi chạy ứng dụng
     @Override
     public void start(Stage primaryStage) throws Exception {
