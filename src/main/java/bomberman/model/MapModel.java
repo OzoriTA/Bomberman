@@ -1,100 +1,50 @@
 package bomberman.model;
 
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+// Import các thư viện cần thiết
+import javafx.scene.image.Image;
 
-// Tạo một lớp kế thừa từ Application
-public class MapModel extends Application {
+// Tạo class MapModel để lưu trữ các thuộc tính và phương thức của bản đồ
+public class MapModel {
 
-    // Khai báo các hằng số cho kích thước của bản đồ và ô vuông
-    public static final int ROWS = 10; // Số hàng của bản đồ
-    public static final int COLS = 10; // Số cột của bản đồ
-    public static final int SIZE = 50; // Kích thước của mỗi ô vuông (pixel)
+    // Khai báo các thuộc tính
+    private int width; // Chiều rộng của bản đồ
+    private int height; // Chiều cao của bản đồ
+    private Image image; // Ảnh của bản đồ
 
-    // Khai báo một mảng hai chiều để lưu trữ trạng thái của các ô vuông
-    // 0: ô trống, 1: ô có bom, 2: ô có người chơi
-    private int[][] map;
+    // Tạo hàm khởi tạo với các tham số
+    public MapModel(int width, int height, String imagePath) {
+        // Gán giá trị cho các thuộc tính
+        this.width = width;
+        this.height = height;
 
-    // Khai báo một GridPane để hiển thị các ô vuông
-    private GridPane grid;
-
-    // Phương thức khởi tạo để tạo ra một bản đồ ngẫu nhiên
-    public MapModel() {
-        // Tạo một mảng hai chiều với kích thước ROWS x COLS
-        map = new int[ROWS][COLS];
-
-        // Duyệt qua từng phần tử của mảng và gán giá trị ngẫu nhiên cho nó
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLS; j++) {
-                // Xác suất để một ô có bom là 20%
-                if (Math.random() < 0.2) {
-                    map[i][j] = 1; // Gán giá trị 1 cho ô có bom
-                } else {
-                    map[i][j] = 0; // Gán giá trị 0 cho ô trống
-                }
-            }
-        }
-
-        // Đặt người chơi vào vị trí ngẫu nhiên trên bản đồ
-        int x = (int) (Math.random() * ROWS); // Tọa độ x ngẫu nhiên
-        int y = (int) (Math.random() * COLS); // Tọa độ y ngẫu nhiên
-
-        // Đảm bảo rằng vị trí của người chơi không phải là ô có bom
-        while (map[x][y] == 1) {
-            x = (int) (Math.random() * ROWS);
-            y = (int) (Math.random() * COLS);
-        }
-
-        map[x][y] = 2; // Gán giá trị 2 cho ô có người chơi
-
-        // Tạo một GridPane với kích thước ROWS x COLS và khoảng cách giữa các ô là 0 pixel
-        grid = new GridPane();
-        grid.setHgap(0);
-        grid.setVgap(0);
-
-        // Duyệt qua từng phần tử của mảng và tạo ra các Rectangle để hiển thị các ô vuông trên
-        // GridPane
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLS; j++) {
-                Rectangle rect = new Rectangle(SIZE, SIZE); // Tạo một Rectangle
-                // Đặt màu cho Rectangle dựa vào giá trị của mảng
-                if (map[i][j] == 0) {
-                    rect.setFill(Color.WHITE); // Ô trống có màu trắng
-                } else if (map[i][j] == 1) {
-                    rect.setFill(Color.RED); // Ô có bom có màu đỏ
-                } else if (map[i][j] == 2) {
-                    rect.setFill(Color.GREEN); // Ô có người chơi có màu xanh lá
-                }
-
-                // Thêm Rectangle vào GridPane ở vị trí tương ứng
-                grid.add(rect, j, i);
-            }
-        }
+        // Tạo ảnh cho bản đồ từ file
+        image = new Image(imagePath);
     }
 
-    // Phương thức start để khởi chạy ứng dụng
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Tạo một Scene với GridPane làm root node và kích thước là COLS x SIZE x ROWS x SIZE pixel
-        Scene scene = new Scene(grid, COLS * SIZE, ROWS * SIZE);
+    // Tạo các phương thức getter và setter cho các thuộc tính
 
-        // Đặt tiêu đề cho Stage
-        primaryStage.setTitle("Bomber Map");
-
-        // Đặt Scene cho Stage
-        primaryStage.setScene(scene);
-
-        // Hiển thị Stage
-        primaryStage.show();
+    public int getWidth() {
+        return width;
     }
 
-    // Phương thức main để chạy ứng dụng
-    public static void main(String[] args) {
-        launch(args);
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
