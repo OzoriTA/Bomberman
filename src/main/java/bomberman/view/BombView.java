@@ -15,13 +15,13 @@ public class BombView extends Pane {
     public BombView(Image bombImage, int bombSize) {
         this.bombSize = bombSize;
 
-        bombImage = new ImageView(bombImage);
-        bombImage.setFitWidth(bombSize);
-        bombImage.setFitHeight(bombSize);
+        ImageView imageView = new ImageView(bombImage);
+        imageView.setFitWidth(bombSize);
+        imageView.setFitHeight(bombSize);
 
-        getChildren().add(bombImage);
+        getChildren().add(imageView);
+        this.bombImage = imageView;
     }
-
 
     public ImageView getBombImage() {
         return bombImage;

@@ -5,7 +5,7 @@ package bomberman.model;
 import javafx.scene.image.Image;
 
 // Tạo class MapModel để lưu trữ các thuộc tính và phương thức của bản đồ
-public class MapModel {
+public class Map {
 
     // Khai báo các thuộc tính
     private int width; // Chiều rộng của bản đồ
@@ -13,7 +13,7 @@ public class MapModel {
     private Image image; // Ảnh của bản đồ
 
     // Tạo hàm khởi tạo với các tham số
-    public MapModel(int width, int height, String imagePath) {
+    public Map(int width, int height, String imagePath) {
         // Gán giá trị cho các thuộc tính
         this.width = width;
         this.height = height;

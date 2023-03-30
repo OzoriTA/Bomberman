@@ -2,7 +2,7 @@ package bomberman.model;
 
 import javafx.scene.image.Image;
 
-public class EnemyModel {
+public class Enemy {
 
     // Khai báo các thuộc tính
     private int x; // Tọa độ x của kẻ địch trên bản đồ
@@ -12,7 +12,7 @@ public class EnemyModel {
     private Image image; // Ảnh của kẻ địch
 
     // Tạo hàm khởi tạo với các tham số
-    public EnemyModel(int x, int y, int size, int speed, String imagePath) {
+    public Enemy(int x, int y, int size, int speed, String imagePath) {
         // Gán giá trị cho các thuộc tính
         this.x = x;
         this.y = y;

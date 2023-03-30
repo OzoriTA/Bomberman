@@ -3,7 +3,7 @@ package bomberman.model;
 
 import javafx.scene.image.Image;
 
-public class BombModel {
+public class Bomb {
 
     private int x;
     private int y; 
@@ -12,7 +12,7 @@ public class BombModel {
     private Image bombImage;
 
     // Tạo hàm khởi tạo với các tham số
-    public BombModel(int x, int y, int bombSize, int timer, String imagePath) {
+    public Bomb(int x, int y, int bombSize, int timer, String imagePath) {
         // Gán giá trị cho các thuộc tính
         this.x = x;
         this.y = y;

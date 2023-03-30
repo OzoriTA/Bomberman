@@ -1,5 +1,5 @@
 package bomberman.model;
 
-public class PlayerModel {
+public class Player {
     
 }
