@@ -1,37 +1,20 @@
 package bomberman.view;
 
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import bomberman.model.Player;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 
-public class PlayerView extends VBox {
-    private ImageView playerImage;
-    private Label playerName;
+public class PlayerView {
+    private Group playerGroup;
+    private Image playerImage;
 
-    public PlayerView(Image image, String name) {
-        playerImage = new ImageView(image);
-        playerName = new Label(name);
-
-        getChildren().addAll(playerImage, playerName);
-        setAlignment(Pos.CENTER);
-        setSpacing(10);
+    public PlayerView(Player player) {
+        // Initialize player view here
     }
 
-    public ImageView getPlayerImage() {
-        return playerImage;
+    public void updateView() {
+        // Update the view of the player here
     }
 
-    public Label getPlayerName() {
-        return playerName;
-    }
-
-    public void setPlayerImage(Image image) {
-        playerImage.setImage(image);
-    }
-
-    public void setPlayerName(String name) {
-        playerName.setText(name);
-    }
+    // Getter and setter methods for private fields
 }
