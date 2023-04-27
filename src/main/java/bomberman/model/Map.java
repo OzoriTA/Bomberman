@@ -1,50 +1,50 @@
 package bomberman.model;
 
-
-// Import các thư viện cần thiết
-import javafx.scene.image.Image;
-
-// Tạo class MapModel để lưu trữ các thuộc tính và phương thức của bản đồ
 public class Map {
+    private int width;
+    private int height;
+    private Tile[][] tiles;
 
-    // Khai báo các thuộc tính
-    private int width; // Chiều rộng của bản đồ
-    private int height; // Chiều cao của bản đồ
-    private Image image; // Ảnh của bản đồ
-
-    // Tạo hàm khởi tạo với các tham số
-    public Map(int width, int height, String imagePath) {
-        // Gán giá trị cho các thuộc tính
+    public Map(int width, int height) {
         this.width = width;
         this.height = height;
-
-        // Tạo ảnh cho bản đồ từ file
-        image = new Image(imagePath);
+        this.tiles = new Tile[width][height];
+        // Khởi tạo các ô vuông trên bản đồ
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {
+                    // Nếu là ô vuông ở biên thì đặt là tường
+                    tiles[i][j] = new Tile(true, false, false);
+                } else if (i % 2 == 0 && j % 2 == 0) {
+                    // Nếu là ô vuông chẵn chẵn thì đặt là tường
+                    tiles[i][j] = new Tile(true, false, false);
+                } else {
+                    // Ngược lại thì đặt là không có tường và có thể bị phá hủy
+                    tiles[i][j] = new Tile(false, true, false);
+                }
+            }
+        }
     }
-
-    // Tạo các phương thức getter và setter cho các thuộc tính
 
     public int getWidth() {
         return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     public int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public Tile getTileAt(Position position) {
+        int x = position.getX();
+        int y = position.getY();
+        return tiles[x][y];
     }
 
-    public Image getImage() {
-        return image;
+    public void setTileAt(Position position, Tile tile) {
+        int x = position.getX();
+        int y = position.getY();
+        tiles[x][y] = tile;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
+    // Getter and setter methods for private fields
 }

@@ -17,12 +17,7 @@ public class GameView {
     private Label scoreLabel;
 
     public GameView() {
-        // Initialize game view here
     }
 
-    public void updateView() {
-        // Update the view of the game here
-    }
-
-    // Getter and setter methods for private fields
+    
 }

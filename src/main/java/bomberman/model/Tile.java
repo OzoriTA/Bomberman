@@ -1,0 +1,36 @@
+package bomberman.model;
+
+public class Tile {
+    private boolean wall;
+    private boolean destructible;
+    private boolean containsPowerUp;
+    private int powerUp; // Thêm thuộc tính để lưu trữ đối tượng PowerUp nếu ô vuông chứa vật phẩm cải
+                         // thiện hiệu suất
+
+    public Tile(boolean wall, boolean destructible, boolean containsPowerUp) {
+        this.wall = wall;
+        this.destructible = destructible;
+        this.containsPowerUp = containsPowerUp;
+    }
+
+    public boolean isWall() {
+        return wall;
+    }
+
+    public boolean isDestructible() {
+        return destructible;
+    }
+
+    public boolean containsPowerUp() {
+        return containsPowerUp;
+    }
+
+    public void setPowerUp(int powerUp) {
+        this.powerUp = powerUp;
+    }
+
+    public int getPowerUp() {
+        return powerUp;
+    }
+
+}
