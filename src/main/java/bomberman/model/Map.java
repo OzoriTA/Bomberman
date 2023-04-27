@@ -46,5 +46,4 @@ public class Map {
         tiles[x][y] = tile;
     }
 
-    // Getter and setter methods for private fields
 }

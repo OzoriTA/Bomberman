@@ -1,15 +1,31 @@
 package bomberman.model;
+
 public class Enemy {
     private Position position;
     private boolean isAlive;
 
-    public Enemy(Position position) {
-        // Initialize enemy state here
+    public Enemy(Position position, boolean isAlive) {
+        this.position = position;
+        this.isAlive = true;
     }
 
-    public void moveTowardsPlayer(Player player) {
-        // Move the enemy towards the player's current position
+    public Position getPosition() {
+        return position;
     }
 
-    // Getter and setter methods for private fields
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
+    public void move(Position pos) {
+    }
+
 }
