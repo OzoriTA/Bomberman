@@ -4,8 +4,7 @@ public class Tile {
     private boolean wall;
     private boolean destructible;
     private boolean containsPowerUp;
-    private int powerUp; // Thêm thuộc tính để lưu trữ đối tượng PowerUp nếu ô vuông chứa vật phẩm cải
-                         // thiện hiệu suất
+    private int powerUp;
 
     public Tile(boolean wall, boolean destructible, boolean containsPowerUp) {
         this.wall = wall;

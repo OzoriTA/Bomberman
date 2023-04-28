@@ -9,7 +9,6 @@ public class Map {
         this.width = width;
         this.height = height;
         this.tiles = new Tile[width][height];
-        // Khởi tạo các ô vuông trên bản đồ
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (i == 0 || j == 0 || i == width - 1 || j == height - 1) {

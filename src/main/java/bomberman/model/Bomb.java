@@ -32,10 +32,13 @@ public class Bomb {
     }
 
     public void explode() {
+
+    }
+
+    public void placeBomb() {
         if (player.isBombPlanted() == true) {
 
-            // Đặt bom
-            player.setBombPlanted(true);
+            this.position = player.getPosition();
         }
 
     }

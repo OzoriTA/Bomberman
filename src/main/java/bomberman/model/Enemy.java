@@ -1,5 +1,7 @@
 package bomberman.model;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public class Enemy {
     private Position position;
     private boolean isAlive;
@@ -25,7 +27,7 @@ public class Enemy {
         this.isAlive = isAlive;
     }
 
-    public void move(Position pos) {
+    public void move(Position pos, GraphicsContext gcgc) {
     }
 
 }

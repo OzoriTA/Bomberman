@@ -7,9 +7,9 @@ public class Player {
     private boolean bombPlanted;
 
     public Player(int maxBombs, Position position, boolean isAlive) {
-        this.maxBombs = 0;
-        this.position = new Position(0, 0);
-        this.isAlive = true;
+        this.maxBombs = maxBombs;
+        this.position = position;
+        this.isAlive = isAlive;
         this.bombPlanted = false;
     }
 
@@ -37,32 +37,41 @@ public class Player {
         this.isAlive = isAlive;
     }
 
-    public void moveUp() {
-
-    }
-
-    public void moveRight() {
-
-    }
-
-    public void moveDown() {
-
-    }
-
-    public void moveLeft() {
-
+    public void move(Move move) {
+        int x = position.getX() + move.getDeltaX();
+        int y = position.getY() + move.getDeltaY();
+        this.setPosition(new Position(x, y));
     }
 
     public void placeBomb() {
         // Place a bomb at the current position of the player
+        this.bombPlanted = true;
     }
 
     public boolean isBombPlanted() {
         return bombPlanted;
     }
 
-    public void setBombPlanted(boolean bombPlanted) {
-        this.bombPlanted = bombPlanted;
-    }
+    public enum Move {
+        UP(0, -1),
+        RIGHT(1, 0),
+        DOWN(0, 1),
+        LEFT(-1, 0);
+        
+        private final int deltaX;
+        private final int deltaY;
 
+        Move(final int deltaX, final int deltaY) {
+            this.deltaX = deltaX;
+            this.deltaY = deltaY;
+        }
+
+        public int getDeltaX() {
+            return deltaX;
+        }
+
+        public int getDeltaY() {
+            return deltaY;
+        }
+    }
 }

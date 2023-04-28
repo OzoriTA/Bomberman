@@ -2,6 +2,8 @@ package bomberman.model;
 
 import java.util.List;
 
+import bomberman.model.Player.Move;
+
 public class GameModel {
     private int score;
     private int remainingEnemies;
@@ -84,19 +86,18 @@ public class GameModel {
 
     public void movePlayer(int i) {
         if (i == 1) {
-            player.moveUp();
+            player.move(Move.UP);
 
         }
         if (i == 2) {
-            player.moveDown();
-
+            player.move(Move.DOWN);
         }
         if (i == 3) {
-            player.moveLeft();
+            player.move(Move.LEFT);
 
         }
         if (i == 4) {
-            player.moveRight();
+            player.move(Move.RIGHT);
 
         }
 
