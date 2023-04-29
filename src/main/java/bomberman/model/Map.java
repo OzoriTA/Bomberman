@@ -25,6 +25,9 @@ public class Map {
         }
     }
 
+    public Map() {
+    }
+
     public int getWidth() {
         return width;
     }

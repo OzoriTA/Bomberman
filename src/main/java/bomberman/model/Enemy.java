@@ -1,5 +1,6 @@
 package bomberman.model;
 
+import bomberman.model.GameModel.Move;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Enemy {
@@ -28,6 +29,17 @@ public class Enemy {
     }
 
     public void move(Position pos, GraphicsContext gcgc) {
+    }
+
+    private Move randomDirection(boolean vertical) {
+        assert Move.values().length == 4;
+        int pick = (int) (Math.random() * (Move.values().length - 2));
+        if (vertical) {
+            return Move.values()[pick];
+        } else {
+            return Move.values()[pick + 2];
+        }
+
     }
 
 }

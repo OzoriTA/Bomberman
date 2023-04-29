@@ -1,5 +1,7 @@
 package bomberman.model;
 
+import bomberman.model.GameModel.Move;
+
 public class Player {
     private int maxBombs;
     private Position position;
@@ -37,12 +39,6 @@ public class Player {
         this.isAlive = isAlive;
     }
 
-    public void move(Move move) {
-        int x = position.getX() + move.getDeltaX();
-        int y = position.getY() + move.getDeltaY();
-        this.setPosition(new Position(x, y));
-    }
-
     public void placeBomb() {
         // Place a bomb at the current position of the player
         this.bombPlanted = true;
@@ -52,26 +48,9 @@ public class Player {
         return bombPlanted;
     }
 
-    public enum Move {
-        UP(0, -1),
-        RIGHT(1, 0),
-        DOWN(0, 1),
-        LEFT(-1, 0);
-        
-        private final int deltaX;
-        private final int deltaY;
-
-        Move(final int deltaX, final int deltaY) {
-            this.deltaX = deltaX;
-            this.deltaY = deltaY;
-        }
-
-        public int getDeltaX() {
-            return deltaX;
-        }
-
-        public int getDeltaY() {
-            return deltaY;
-        }
+    public void move(Move move) {
+        int x = position.getX() + move.getDeltaX();
+        int y = position.getY() + move.getDeltaY();
+        this.setPosition(new Position(x, y));
     }
 }

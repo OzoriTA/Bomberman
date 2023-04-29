@@ -2,12 +2,9 @@ package bomberman.model;
 
 import java.util.List;
 
-import bomberman.model.Player.Move;
-
 public class GameModel {
     private int score;
     private int remainingEnemies;
-    private boolean gameOver;
     private Player player;
     private List<Enemy> enemies;
     private Map map;
@@ -34,11 +31,12 @@ public class GameModel {
     }
 
     public boolean isGameOver() {
-        return gameOver;
-    }
 
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
+        if (!player.isAlive()) {
+            return false;
+
+        }
+        return true;
     }
 
     public Player getPlayer() {
@@ -107,4 +105,26 @@ public class GameModel {
         player.placeBomb();
     }
 
+    public enum Move {
+        UP(0, -1),
+        RIGHT(1, 0),
+        DOWN(0, 1),
+        LEFT(-1, 0);
+
+        private final int deltaX;
+        private final int deltaY;
+
+        Move(final int deltaX, final int deltaY) {
+            this.deltaX = deltaX;
+            this.deltaY = deltaY;
+        }
+
+        public int getDeltaX() {
+            return deltaX;
+        }
+
+        public int getDeltaY() {
+            return deltaY;
+        }
+    }
 }
